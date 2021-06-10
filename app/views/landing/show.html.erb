@@ -1,0 +1,75 @@
+
+<div class="container container-show">
+
+    <div class="d-flex flex-row justify-content-center">
+<div class="card show-card" style="width: 100%;">
+  <img class="card-img-top" src="inserimage" alt="Card image cap">
+  <div class="card-body">
+    <h2 class="card-title">titre : <%= @item.title %></h2>
+    <p class="card-text">description : <%= @item.description %></p>
+    <h3 class="card-text">prix : <%= @item.price %> €</h3>
+    <a href="#" class="btn btn-primary">Ajouter au ppanier</a>
+  </div>
+</div>
+</div>
+
+</div>
+
+
+<STYLE>
+.myrow1 {
+  display: flex;
+  justify-content: center;
+}
+
+
+.imgenhaut {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    background-position-y: center;
+    background-repeat: no-repeat;
+
+}
+
+@media (max-width: 800px) {
+    .myrow1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.myrow1{
+    
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.show2 {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+
+
+.word {
+   
+    width: 80%;
+    font-size: 100%;
+    
+  }
+
+
+
+</STYLE>
+
+
+
+
+
+
+
+  

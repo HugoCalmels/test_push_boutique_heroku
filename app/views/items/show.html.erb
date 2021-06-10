@@ -1,0 +1,97 @@
+#/items/*item ID*
+
+
+<STYLE>
+
+  .imghappycat {
+    width: 40%
+  }
+
+  .itempostverifedit {
+    display:flex;
+    flex-grow: 10;
+    display: flex;
+    flex-wrap: nowrap;
+    
+  }
+  
+  @media (max-width: 800px) {
+    .itempostverifedit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+
+  @media (max-width: 800px) {
+    .myrow1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  }
+
+  .myrow1{
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+</STYLE>
+
+
+
+
+<div class="row itempostverifedit">
+  <div class="flex-container imghappycat">
+
+    <img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/71t+aicsR0L.jpg" alt="Card image cap">
+
+  </div>
+
+  
+  <div class="flex-container itempost">
+  
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+      
+        <a class="nav-link active" data-bs-toggle="tab" href="#home">infos cool</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#profile">Image</a>
+      </li>
+      <li class="nav-item">
+        <%= button_to "Modifier le post", edit_item_path(@item), :method => "get" %>
+      </li>
+      <li class="nav-item">
+        <%= button_to "Retour au menu", href="/", :method => "get" %>
+      </li>
+    </ul>
+
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade show active" id="home">
+        
+      
+        <br>
+          <h4><%= @item.title %></h4>
+
+          <%= image_tag(@item.image) %>
+
+          <br>
+          <%= @item.description %>
+
+          <br></br>
+
+          <h5>Prix :<%= @item.price_cents %></h5>
+
+          
+
+
+
+          </p>
+        </div>
+        
+    </div>
+  </div>
+</div>

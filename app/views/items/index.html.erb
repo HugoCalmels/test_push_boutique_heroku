@@ -1,0 +1,93 @@
+<details>
+  <summary>Shopping cart</summary>
+  <% if @cart.empty? %>
+  <p>No Items in Cart.</p>
+  <% else %>
+  <ul>
+    <% @cart.each do |item| %>
+    <li><%= item.title %>prix :<%= number_to_currency item.price_cents / 100.0 %> - <%= link_to 'remove from cart', remove_from_cart_path(item), method: :delete %> </li>
+  <% end %>
+  </ul>
+  <% end %>
+</details>
+
+<p id="notice"><%= notice %></p>
+
+
+<div class="tout1">
+  <div class="row row-cols-4 row-cols-sm-5 row-cols-md-8 ">
+
+
+    <div class="col">
+      <h1>Items</h1>         
+    </div>
+
+    <div class="col buttonnew">
+      <%= button_to "New Item", new_item_path, :method => "get" %>
+    </div>
+  </div>
+
+
+
+  <br>
+
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 ">
+    <% @items.each do |item| %>
+      <div class="col">
+        <div class="card border-warning mb-3 cards" style="max-width: 20rem;">
+
+          <div class="card-header">
+            <h4><%= item.title %></h4>
+          </div>
+
+          <div class="card-body">
+            
+            
+
+            <div class="flex-container text">
+              <h4 class="card-title">prix : <%= number_to_currency item.price_cents / 100.0 %></h4>
+              <p class="card-text"><%= item.description %></p>
+              <%= link_to "View random user", landing_path(item.id), class: 'btn btn-sm btn-outline-secondary'%>
+              <%= link_to "Modifier", edit_item_path(item.id), class: 'btn btn-sm btn-outline-secondary'%>
+              <%= link_to "User", edit_item_path(item.id), class: 'btn btn-sm btn-outline-secondary'%>
+
+              <% if @cart.include?(item) %>
+              <p><%= button_to 'remove from cart', remove_from_cart_path(item), method: :delete %></p> 
+              <% else %>
+              <p><%= link_to 'add to cart', add_to_cart_path(item.id), method: :post %></p>
+              <% end %>
+
+              <%= button_to 'buy now', checkout_create_path, method: :post, params: {id: item.id}, remote: true %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+<STYLE>
+
+.button_to1 {
+  weight: 220%;
+  height: 150%;
+}
+
+.tout1 {
+  display:flex;
+  padding-left: 30px;
+  flex-direction: column;
+}
+
+
+
+
+</STYLE>

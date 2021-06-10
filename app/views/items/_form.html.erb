@@ -1,0 +1,74 @@
+<%= form_with(model: item, local: true) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<STYLE>
+
+.formulaire_items{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.a1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+</STYLE>
+
+
+<p> YOU HAVE VISITED THIS SITE <%= pluralize @visit_count, 'time'%> </p>
+
+<div class="container imgcgatons">
+    <img class="card-img-top" src="https://data.puzzle.be/dino.151/chatons-puzzle-150-pieces.62908-1.fs.jpg" alt="Card image cap">
+</div>
+
+<div class="container formulaire_items">
+    <div class="field a1">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+  
+    <br></br>
+  
+    <div class="field a1">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+  
+    <br></br>
+  
+    <div class="field a1">
+      <%= form.label :price_cents %>
+      <%= form.text_field :price_cents %>
+    </div>
+  
+    <br></br>
+  
+  
+
+    <div class="field a1">
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+    </div>
+  
+    <br></br>
+  
+    <div class="actions a1">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
